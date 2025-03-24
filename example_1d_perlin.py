@@ -2,6 +2,8 @@ import numpy as np
 import matplotlib.pyplot as plt
 from perlin import Perlin
 
+Perlin.seed(214)
+
 # Example 1: Generate 1D Perlin noise
 x_values = np.linspace(0, 5, 100)
 noise_values_1d = [Perlin.noise(x) for x in x_values]

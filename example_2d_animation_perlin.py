@@ -3,15 +3,20 @@ import matplotlib.pyplot as plt
 import matplotlib.animation
 from perlin import Perlin
 
+Perlin.seed(214)
+
 x_adder = 0
+y_adder = 0
+
 # Example 6: Generate 2D Perlin noise animation
 def generate_perlin_2d(width, height, scale):
     global x_adder
     perlin = np.zeros((height, width))
     for y in range(height):
         for x in range(width):
-            perlin[y][x] = Perlin.noise(x / scale + x_adder, y / scale)
+            perlin[y][x] = Perlin.noise(x / scale + x_adder, y / scale + y_adder)
     x_adder += 0.7
+    y_adder += 0.7
     return perlin
 
 fig, ax = plt.subplots(figsize=(6, 6))

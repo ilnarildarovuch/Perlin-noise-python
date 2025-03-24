@@ -1,6 +1,8 @@
 import numpy as np
 from perlin import Perlin
 
+Perlin.seed(214)
+
 # Example 3: Generate 3D Perlin noise
 def generate_3d_noise(x_size, y_size, z_size, scale):
     noise = np.zeros((z_size, y_size, x_size))

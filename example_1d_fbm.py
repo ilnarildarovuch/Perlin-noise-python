@@ -2,6 +2,8 @@ import numpy as np
 import matplotlib.pyplot as plt
 from perlin import Perlin
 
+Perlin.seed(214)
+
 # Example 4: Generate fBm for 1D
 x_values = np.linspace(0, 5, 100)
 octaves = 5

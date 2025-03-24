@@ -17,6 +17,22 @@ class Perlin:
         138, 236, 205, 93, 222, 114, 67, 29, 24, 72, 243, 141, 128, 195, 78, 66, 215, 61, 156, 180,
         151
     ]
+
+    @staticmethod
+    def seed(seed):
+        def pseudo_random(seed):
+            while True:
+                seed = (seed * 48271) % 2147483647
+                yield seed / 2147483647
+
+        random_gen = pseudo_random(seed)
+        
+        perm = Perlin.perm[:]
+        for i in range(len(perm) - 1, 0, -1):
+            j = int(next(random_gen) * (i + 1))
+            perm[i], perm[j] = perm[j], perm[i]
+
+        Perlin.perm = perm
     
     @staticmethod
     def fade(t):

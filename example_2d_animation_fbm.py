@@ -3,15 +3,20 @@ import matplotlib.pyplot as plt
 import matplotlib.animation
 from perlin import Perlin
 
+Perlin.seed(214)
+
 x_adder = 0
+y_adder = 0
+
 # Example 7: Generate 2D fBm animation
 def generate_fbm_2d(width, height, scale, octaves):
     global x_adder
     fbm = np.zeros((height, width))
     for y in range(height):
         for x in range(width):
-            fbm[y][x] = Perlin.fbm(x / scale + x_adder, y / scale, octave=octaves)
-    x_adder += 0.1
+            fbm[y][x] = Perlin.fbm(x / scale + x_adder, y / scale + y_adder, octave=octaves)
+    x_adder += 0.7
+    y_adder += 0.7
     return fbm
 
 fig, ax = plt.subplots(figsize=(6, 6))
@@ -24,6 +29,6 @@ def update(i):
     return im,
 
 ani = matplotlib.animation.FuncAnimation(fig, update, frames=range(1, 10),
-                                        interval=5, blit=True)
+                                        interval=1, blit=True)
 
 plt.show()

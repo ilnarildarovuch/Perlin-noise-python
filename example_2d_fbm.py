@@ -2,6 +2,8 @@ import numpy as np
 import matplotlib.pyplot as plt
 from perlin import Perlin
 
+Perlin.seed(214)
+
 octaves = 5
 # Example 5: Generate fBm for 2D
 def generate_fbm_2d(width, height, scale, octaves):

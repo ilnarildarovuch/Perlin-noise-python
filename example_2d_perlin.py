@@ -2,6 +2,8 @@ import numpy as np
 import matplotlib.pyplot as plt
 from perlin import Perlin
 
+Perlin.seed(214)
+
 # Example 2: Generate 2D Perlin noise
 def generate_2d_noise(width, height, scale):
     noise = np.zeros((height, width))
